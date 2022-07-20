@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index',[
-        'today' => \Carbon\Carbon::now()->setTimezone('Asia/Taipei') 
+    return view('index', [
+        'today' => \Carbon\Carbon::now()->setTimezone('Asia/Taipei'),
     ]);
 });

@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -24,6 +23,6 @@ class ExampleTest extends TestCase
         $response = $this->get('api/ping');
 
         $response->assertStatus(200)
-        ->assertJson(['message'=> 'pong']);
+        ->assertJson(['message' => 'pong']);
     }
 }
