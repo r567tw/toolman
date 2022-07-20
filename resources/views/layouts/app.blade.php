@@ -37,6 +37,7 @@
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2">Login</button>
           <button type="button" class="btn btn-warning">Sign-up</button>
+          <a class="btn btn-outline-light me-2" href="http://rocky-stream-36893.herokuapp.com/api/documentation">Swagger</a>
         </div>
       </div>
     </div>
