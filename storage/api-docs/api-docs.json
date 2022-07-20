@@ -1,0 +1,38 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "土爾曼API文件",
+        "description": "測試Swagger文件",
+        "contact": {
+            "email": "r567tw@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/ping": {
+            "get": {
+                "tags": [
+                    "Ping"
+                ],
+                "summary": "Health checker",
+                "description": "Health checker",
+                "operationId": "ping",
+                "responses": {
+                    "200": {
+                        "description": "請求成功"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Ping",
+            "description": "ping"
+        }
+    ]
+}
