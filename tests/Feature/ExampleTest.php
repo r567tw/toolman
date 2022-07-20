@@ -18,4 +18,12 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_the_api_return_pong()
+    {
+        $response = $this->get('api/ping');
+
+        $response->assertStatus(200)
+        ->assertJson(['message'=> 'pong']);
+    }
 }
