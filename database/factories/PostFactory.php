@@ -20,9 +20,9 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->word(),
             'content' => $this->faker->randomHtml(),
-            'author' => function(){
+            'author' => function () {
                 return User::factory()->create()->id;
-            }
+            },
         ];
     }
 }
