@@ -12,6 +12,16 @@
         },
         "version": "1.0.0"
     },
+    "servers": [
+        {
+            "url": "https://rocky-stream-36893.herokuapp.com",
+            "description": "Heroku"
+        },
+        {
+            "url": "http://toolman.test",
+            "description": "本機"
+        }
+    ],
     "paths": {
         "/api/ping": {
             "get": {
@@ -27,12 +37,40 @@
                     }
                 }
             }
+        },
+        "/api/posts": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "取得全部文章",
+                "description": "取得全部文章",
+                "operationId": "getAllPosts",
+                "responses": {
+                    "200": {
+                        "description": "請求成功"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "Authorization": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
         }
     },
     "tags": [
         {
             "name": "Ping",
             "description": "ping"
+        },
+        {
+            "name": "Post",
+            "description": "post"
         }
     ]
 }

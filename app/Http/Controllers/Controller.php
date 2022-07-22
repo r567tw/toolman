@@ -21,6 +21,21 @@ use Illuminate\Routing\Controller as BaseController;
  *      )
  * )
  * @OA\Tag(name="Ping", description="ping")
+ * @OA\Tag(name="Post", description="post")
+ * @OA\server(
+ *      url = "https://rocky-stream-36893.herokuapp.com",
+ *      description="Heroku"
+ * )
+ * @OA\server(
+ *      url = "http://toolman.test",
+ *      description="本機"
+ * )
+ * @OA\SecurityScheme(
+ *         securityScheme="Authorization",
+ *         type="apiKey",
+ *         in="header",
+ *         name="Authorization"
+ * )
  */
 class Controller extends BaseController
 {

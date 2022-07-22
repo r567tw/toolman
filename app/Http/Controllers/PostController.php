@@ -9,9 +9,17 @@ use App\Models\Post;
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *      path="/api/posts",
+     *      operationId="getAllPosts",
+     *      tags={"Post"},
+     *      summary="取得全部文章",
+     *      description="取得全部文章",
+     *      @OA\Response(
+     *          response=200,
+     *          description="請求成功"
+     *      )
+     * )
      */
     public function index()
     {
@@ -84,3 +92,18 @@ class PostController extends Controller
         //
     }
 }
+
+ /**
+ * @OA\Schema(
+ *  schema="Result",
+ *  title="Result",
+ * 	@OA\Property(
+ * 		property="status",
+ * 		type="string"
+ * 	),
+ * 	@OA\Property(
+ * 		property="error",
+ * 		type="string"
+ * 	)
+ * )
+ */
