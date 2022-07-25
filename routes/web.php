@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index', [
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard', [
         'today' => \Carbon\Carbon::now()->setTimezone('Asia/Taipei'),
     ]);
-});
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
