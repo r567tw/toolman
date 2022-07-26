@@ -9,6 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <h1>Basic Info</h1>
+                    <p>{{ auth()->user()->email }}</p>
+                </div>
+                <div class="p-6 bg-white border-b border-gray-200">
                     <p>今天是 {{ $today->format('Y-m-d') }}</p>
                     <p>今年第 {{ $today->weekOfYear }} 週</p>
                     <p>今年第 {{ $today->dayOfYear }} 天</p>
@@ -16,6 +20,10 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p>今年還剩下 {{ $today->weeksInYear-$today->weekOfYear }} 週</p>
                     <p>今年還剩下 {{ $today->daysInYear-$today->dayOfYear }} 天</p>
+                </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <h1>Tokens</h1>
+                    
                 </div>
             </div>
         </div>

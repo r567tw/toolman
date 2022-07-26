@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PongController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TokenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('ping', [PongController::class, 'ping']);
-Route::apiResource('posts', PostController::class);
+Route::post('token', [TokenController::class, 'create'])->name('token.create');
+Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::middleware('auth')->group(function () {
+// });
