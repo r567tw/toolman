@@ -21,10 +21,6 @@
                     <p>今年還剩下 {{ $today->weeksInYear-$today->weekOfYear }} 週</p>
                     <p>今年還剩下 {{ $today->daysInYear-$today->dayOfYear }} 天</p>
                 </div>
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <h1>Tokens</h1>
-                    
-                </div>
             </div>
         </div>
     </div>
