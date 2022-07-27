@@ -19,7 +19,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'content' => $this->faker->randomHtml(),
+            'content' => $this->faker->company(),
             'author' => function () {
                 return User::factory()->create()->id;
             },
