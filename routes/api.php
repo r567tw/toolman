@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('ping', [PongController::class, 'ping']);
 Route::post('token', [TokenController::class, 'create'])->name('token.create');
-Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
+Route::apiResource('posts', PostController::class)->except(
+    ['create']
+)->middleware('auth:sanctum');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

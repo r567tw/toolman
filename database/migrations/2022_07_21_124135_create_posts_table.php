@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->comment('文章');
             $table->id();
-            $table->string('title')->unique()->comment('title');
+            $table->string('title',120)->unique()->comment('title');
             $table->text('content')->comment('content');
             $table->unsignedBigInteger('author')->comment('author');
             $table->timestamps();

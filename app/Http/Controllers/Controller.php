@@ -31,10 +31,9 @@ use Illuminate\Routing\Controller as BaseController;
  *      description="本機"
  * )
  * @OA\SecurityScheme(
- *         securityScheme="Authorization",
- *         type="apiKey",
- *         in="header",
- *         name="Authorization"
+ *     securityScheme="bearerAuth",
+ *     type="http",
+ *     scheme="bearer"
  * )
  */
 class Controller extends BaseController

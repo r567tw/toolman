@@ -13,6 +13,7 @@ class PostController extends Controller
      *      path="/api/posts",
      *      operationId="getAllPosts",
      *      tags={"Post"},
+     *      security={{"bearerAuth":{}}},
      *      summary="取得全部文章",
      *      description="取得全部文章",
      *      @OA\Response(
@@ -27,24 +28,42 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePostRequest  $request
-     * @return \Illuminate\Http\Response
+     * @OA\Post(
+     *      path="/api/posts",
+     *      operationId="createPost",
+     *      tags={"Post"},
+     *      summary="建立文章",
+     *      description="建立文章",
+     *      security={{"bearerAuth":{}}},
+     *      @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="title",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="content",
+     *                     type="string"
+     *                 ),
+     *                 example={"title": "HelloWorld", "content": "HelloWolrd content"}
+     *             )
+     *         )
+     *     ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="請求成功"
+     *      )
+     * )
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $params = $request->validated();
+        $params['author'] = auth()->user()->id;
+
+        $post = Post::create($params);
+        return response()->json(['id' => $post->id]);
     }
 
     /**
@@ -93,7 +112,7 @@ class PostController extends Controller
     }
 }
 
- /**
+/**
  * @OA\Schema(
  *  schema="Result",
  *  title="Result",

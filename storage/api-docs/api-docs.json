@@ -50,16 +50,59 @@
                     "200": {
                         "description": "請求成功"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "建立文章",
+                "description": "建立文章",
+                "operationId": "createPost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "content": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "title": "HelloWorld",
+                                    "content": "HelloWolrd content"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "請求成功"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },
     "components": {
         "securitySchemes": {
-            "Authorization": {
-                "type": "apiKey",
-                "name": "Authorization",
-                "in": "header"
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
             }
         }
     },
